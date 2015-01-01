@@ -1,0 +1,19 @@
+<template name="home">
+  <div class="container-fluid" id="home">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4 main-container panel panel-default">
+        <div class="panel-heading">
+          <h2 class="text-center">{{formHeader}}</h2>
+        </div>
+        <div class="panel-body">
+          <ul class="social-buttons list-group " >
+            <li><a class="github btn fa fa-github"> GitHub</a></li> 
+            <li><a class="twitter btn fa fa-twitter"> Twitter</a></li> 
+            <li><a class="facebook btn fa fa-facebook"> Facebook</a></li> 
+          </ul>
+          {{> Template.dynamic template = formType}}
+        </div> 
+      </div>
+    </div>
+  </div>
+</template>

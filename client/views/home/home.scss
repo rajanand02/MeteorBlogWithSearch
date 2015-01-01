@@ -6,16 +6,7 @@ body{
     }
   }
 }
-%vertical-center{
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-#login{
+#home{
   height: 100vh;
   background-color: #1c2533;
   background: -webkit-linear-gradient(70deg, #080f1f 30%, #2b4b5a 87%, #435e67 100%);
@@ -72,4 +63,7 @@ body{
       width: 100%;
     }
   }
+}
+.not-found{
+  margin-top: 15%;
 }
