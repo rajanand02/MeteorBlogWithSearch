@@ -1,3 +1,15 @@
+Session.setDefault "formType", "login_form"
+Template.login.helpers
+  formType: ()->
+   Session.get "formType"	
+
+  formHeader:()->
+    type = Session.get "formType"
+    if type is "login_form"
+      "Sign in"
+    else
+      "Register"
+
 Template.login.events
     "click .facebook": ()->
       Meteor.loginWithFacebook
@@ -20,8 +32,11 @@ Template.login.events
         requestOfflineToken:true
 
     "click .logout":()->
+      Session.set "formType", "login_form"
       Meteor.logout()
 
+    "click .need-account":()->
+      Session.set "formType","registration_form"
     "submit #login-form":(e)->
       e.preventDefault()
       username = $("#username").val()
@@ -33,16 +48,25 @@ Template.login.events
           alert "Login Successful"
       )
       
-  Template.registration.events
+  Template.registration_form.events
     "submit #registration":(e) ->
       e.preventDefault()	
       username = $("#register-name").val()
       password = $("#register-password").val()
-      console.log password
-      console.log username
-      Accounts.createUser({username: username,password: password},(error,response)->
-        if error
-          console.log error
+      password2 = $("#confirm-password").val()
+      if password isnt password2
+        alert("Password not matching")
+      else
+        if password is "" or username is ""
+          alert "Username/Password cannot be empty"
         else
-          alert "Welcome new user"
-      )
+          if password.length < 6
+            alert "Password is too small. It should be atleast of 6 characters"
+          else
+            Accounts.createUser({username: username,password: password},(error,response)->
+              if error
+                console.log error
+            )
+
+    "click .member":()->
+      Session.set "formType", "login_form"

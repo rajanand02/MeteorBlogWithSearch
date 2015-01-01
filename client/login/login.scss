@@ -1,3 +1,11 @@
+body{
+  a{
+    cursor: pointer;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
 %vertical-center{
   position: relative;
   top: 50%;
@@ -9,27 +17,59 @@
 }
 #login{
   height: 100vh;
+  background-color: #1c2533;
+  background: -webkit-linear-gradient(70deg, #080f1f 30%, #2b4b5a 87%, #435e67 100%);
+  background: -o-linear-gradient(70deg, #080f1f 30%, #2b4b5a 87%, #435e67 100%);
+  background: -ms-linear-gradient(70deg, #080f1f 30%, #2b4b5a 87%, #435e67 100%);
+  background: -moz-linear-gradient(70deg, #080f1f 30%, #2b4b5a 87%, #435e67 100%);
+  background-attachment: fixed;
+  color: #fff;
   .main-container{
-    margin-top: 10%;
-  }
-  ul.social-buttons{
-    list-style: none;
-    li{
-      margin-bottom: 10px;
-      a{
-        width: 100%;
-        color: #fff;
-        &:hover{
-
+    margin-top: 7%;
+    background: #fff;
+    padding: 10px 30px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #c5cad8, 0 2px 3px #d4d8e3;
+    border: none;
+    .panel-heading,.panel-footer{
+      background-color: #fff;
+    }
+    .panel-footer{
+      p{
+        color: #111;
+      }
+    }
+    ul.social-buttons{
+      list-style: none;
+      li{
+        margin-bottom: 10px;
+        a{
+          width: 100%;
+          color: #fff;
+          font-size: 18px;
+          &:hover{
+            opacity: 0.9;
+          }
+        }
+        .facebook{
+          background-color: #3b5998;
+        }
+        .twitter{
+          background-color: #00aced;
+        }
+        .github{
+          background-color: #555555;
         }
       }
-      .facebook{
-        background-color: #3b5998;
+    }
+    .input-group{
+      margin-bottom: 10px;
+      .form-control:focus {
+        border-color: #A4A6A8;
       }
-      .twitter{
-        background-color: #00aced;
-      }
-
+    }
+    .sign-in,.register{
+      width: 100%;
     }
   }
 }
